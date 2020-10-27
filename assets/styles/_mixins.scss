@@ -1,0 +1,87 @@
+// Width
+@mixin r($width) {
+    @media only screen and (max-width: $width + "px") {
+        @content;
+    }
+}
+
+@mixin rmin($width) {
+    @media only screen and (min-width: $width + "px") {
+        @content;
+    }
+}
+
+// Font size
+$font_sizes: 10, 12, 13, 14, 15, 16, 18, 20, 22, 24, 26, 28, 30;
+
+@each $size in $font_sizes {
+    .font-#{$size} {
+        font-size: #{$size}px;
+    }
+}
+
+// Text align
+$aligns: left, center, right;
+
+@each $align in $aligns {
+    .ta#{str-slice($align, 0, 1)} {
+        text-align: #{$align} !important;
+    }
+}
+
+// Margins & paddings
+$spaceamounts: auto, 0, 3, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 75, 100;
+$sides: top, bottom, left, right;
+
+@each $space in $spaceamounts {
+    .p-#{$space} {
+        @if $space == auto {
+            padding: #{$space} !important;
+        }
+        @else {
+            padding: #{$space}px !important;
+        }
+    }
+
+    @each $side in $sides {
+        .m#{str-slice($side, 0, 1)}-#{$space} {
+            @if $space == auto {
+                margin-#{$side}: #{$space} !important;
+            }
+            @else {
+                margin-#{$side}: #{$space}px !important;
+            }
+        }
+
+        .p#{str-slice($side, 0, 1)}-#{$space} {
+            @if $space == auto {
+                padding-#{$side}: #{$space} !important;
+            }
+            @else {
+                padding-#{$side}: #{$space}px !important;
+            }
+        }
+    }
+}
+
+// height & width
+$sizeamounts: auto, 10, 15, 20, 25, 30, 35, 40, 45, 50, 60, 75, 100;
+$directions: height, width;
+
+@each $size in $sizeamounts {
+    @each $direction in $directions {
+        .#{str-slice($direction, 0, 1)}-#{$size} {
+            @if $size == auto {
+                #{$direction}: #{$size} !important;
+            }
+            @else {
+                #{$direction}: unquote("#{$size}% !important");
+            }
+        }
+    }
+}
+
+// Transition
+@mixin transition($property) {
+    transition: $property 0.3s ease;
+}

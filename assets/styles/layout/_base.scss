@@ -1,0 +1,33 @@
+body, html {
+    height: 100%;
+    width: 100%;
+    min-width: 320px;
+    max-width: 100%;
+}
+
+body {
+    font-family: $baseFont;
+    font-size: $baseFontSize;
+    color: $black;
+    background: $body-bg;
+    text-rendering: optimizeLegibility;
+}
+
+::selection {
+    color: $white;
+    background: $black;
+}
+
+input, textarea {
+    -webkit-appearance: none;
+    outline: 0;
+}
+
+a, button {
+    -webkit-tap-highlight-color: none;
+    outline: 0 !important;
+}
+
+button::-moz-focus-inner {
+    border: 0 !important;
+}

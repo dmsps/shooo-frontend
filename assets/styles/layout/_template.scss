@@ -1,0 +1,13 @@
+#__smoothie, #__layout {
+    height: 100%;
+    width: 100%;
+}
+
+.layout {
+    height: 100%;
+    width: 100vw;
+
+    &__header {
+        background-color: $black;
+    }
+}
